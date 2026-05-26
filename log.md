@@ -135,3 +135,33 @@ Initial vault setup: directory structure, CLAUDE.md rulebook, index.md, log.md s
 - Created: `syntheses/domain-model-overview.md`
 - Updated: `index.md` — all pages indexed by category
 - Updated: `log.md` — all ingest entries populated
+
+## [2026-05-26] ingest | auth-enhancement-plan
+
+Auth enhancement + admin service implementation plan. Adds 9 capabilities: forgot/reset password, password policy, password history, rate limiting, MFA/TOTP, audit logging, WebAuthn, Google OAuth, admin service with RBAC.
+
+- Created: `sources/codebase/2026-05-26-auth-enhancement-plan.md`
+- Created: `entities/password-history-entity.md`
+- Created: `entities/totp-secret-entity.md`
+- Created: `entities/mfa-backup-code-entity.md`
+- Created: `entities/webauthn-credential-entity.md`
+- Created: `entities/oauth-account-entity.md`
+- Created: `entities/audit-log-entity.md`
+- Created: `entities/rate-limit-bucket-entity.md`
+- Created: `entities/admin-service.md`
+- Created: `entities/admin-role-entity.md`
+- Created: `entities/admin-permission-entity.md`
+- Created: `concepts/password-policy.md`
+- Created: `concepts/rate-limiting.md`
+- Created: `concepts/multi-factor-authentication.md`
+- Created: `decisions/decision-mfa-separate-aggregate.md`
+- Created: `decisions/decision-password-policy-config.md`
+- Created: `decisions/decision-rate-limiting-pg.md`
+- Created: `decisions/decision-admin-service-separation.md`
+- Created: `decisions/decision-audit-log-placement.md`
+- Created: `decisions/decision-oauth-csrf-stateless.md`
+- Updated: `entities/auth-service.md` — added enhancement sections
+- Updated: `syntheses/security-and-authentication.md` — added MFA, OAuth, RBAC, rate limiting, audit sections
+- Updated: `syntheses/domain-model-overview.md` — added new aggregate roots and entity relationships
+- Updated: `index.md` — all new pages indexed
+- Updated: `log.md`

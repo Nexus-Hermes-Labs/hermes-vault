@@ -27,17 +27,19 @@ Central knowledge archive for the Hermes real-time communication platform.
 - [[2026-05-26-messaging-message-entity]] — messaging message entity.rs
 - [[2026-05-26-user-profile-entity]] — user profile entity.rs
 - [[2026-05-26-chat-message-entity]] — chat message entity.rs
+- [[2026-05-26-auth-enhancement-plan]] — auth enhancement + admin service plan
 
 ## Entities
 
 ### Services
-- [[auth-service]] — authentication, JWT, sessions (port 8081)
+- [[auth-service]] — authentication, JWT, sessions, MFA, OAuth, WebAuthn (port 8081)
 - [[user-service]] — profiles, relationships, privacy (port 8082)
 - [[guild-service]] — guilds, roles, members (port 8083)
 - [[channel-service]] — channels, categories (port 8083)
 - [[chat-service]] — guild channel messages, reactions (port 8094)
 - [[messaging-service]] — DMs, conversations (port 8084)
 - [[realtime-service]] — WebSocket gateway (planned)
+- [[admin-service]] — system-level RBAC, user management (port 8095, planned)
 
 ### Domain Aggregates
 - [[auth-credential-entity]] — auth credential aggregate root
@@ -46,6 +48,19 @@ Central knowledge archive for the Hermes real-time communication platform.
 - [[channel-entity]] — channel aggregate root
 - [[chat-message-entity]] — chat message aggregate root
 - [[messaging-message-entity]] — messaging message aggregate root
+
+### Auth Enhancement Entities (planned)
+- [[password-history-entity]] — password reuse prevention
+- [[totp-secret-entity]] — TOTP MFA secrets
+- [[mfa-backup-code-entity]] — MFA recovery codes
+- [[webauthn-credential-entity]] — FIDO2 passkeys
+- [[oauth-account-entity]] — external OAuth provider links
+- [[audit-log-entity]] — security event audit trail
+- [[rate-limit-bucket-entity]] — per-endpoint rate limiting
+
+### Admin Service Entities (planned)
+- [[admin-role-entity]] — system-level roles
+- [[admin-permission-entity]] — granular permissions
 
 ### Infrastructure
 - [[traefik]] — edge reverse proxy with ForwardAuth
@@ -70,6 +85,9 @@ Central knowledge archive for the Hermes real-time communication platform.
 - [[distributed-tracing]] — request correlation across services
 - [[observability-stack]] — logging, metrics, tracing
 - [[graceful-shutdown]] — clean service termination
+- [[password-policy]] — config-based password validation rules
+- [[rate-limiting]] — two-tier rate limiting (Traefik + auth-service)
+- [[multi-factor-authentication]] — TOTP, backup codes, WebAuthn
 
 ## Decisions
 
@@ -79,6 +97,12 @@ Central knowledge archive for the Hermes real-time communication platform.
 - [[decision-transactional-outbox]] — outbox over direct NATS publish
 - [[decision-shared-database]] — per-service schemas in shared Postgres
 - [[decision-consul-rolled-back]] — Consul built then rolled back
+- [[decision-mfa-separate-aggregate]] — MFA as separate aggregates, not AuthCredential extension
+- [[decision-password-policy-config]] — config-based policy, not DB-stored
+- [[decision-rate-limiting-pg]] — PG fixed-window inside auth-service
+- [[decision-admin-service-separation]] — separate admin-service for system-level RBAC
+- [[decision-audit-log-placement]] — audit logs in auth-service DB
+- [[decision-oauth-csrf-stateless]] — stateless HMAC-based CSRF for OAuth
 
 ## Issues
 

@@ -12,6 +12,12 @@
 | messaging-service | 8093 | — | In progress | Message delivery orchestration |
 | realtime-service | 8092 | — | ~50% | WebSocket gateway, NATS fanout to clients |
 
+## Planned Services
+
+| Service | Port | Phase | Domain |
+|---|---|---|---|
+| admin-service | 8095 / 50058 | Auth Enhancement | System-level RBAC, user management, audit |
+
 ## Stub Services (not started)
 
 | Service | Port | Phase | Domain |
