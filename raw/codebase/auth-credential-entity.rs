@@ -1,0 +1,1 @@
+/home/bulutcan/github/bulutcan99/hermes/hermes-be/services/auth-service/src/domain/auth_credential/entity.rs

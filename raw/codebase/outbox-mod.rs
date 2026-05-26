@@ -1,0 +1,1 @@
+/home/bulutcan/github/bulutcan99/hermes/hermes-be/services/common/src/infrastructure/outbox/mod.rs

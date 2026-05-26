@@ -1,0 +1,1 @@
+/home/bulutcan/github/bulutcan99/hermes/hermes-be/services/user-service/src/domain/user_profile/entity.rs

@@ -1,0 +1,1 @@
+/home/bulutcan/github/bulutcan99/hermes/docs/ARCHITECTURE.md
