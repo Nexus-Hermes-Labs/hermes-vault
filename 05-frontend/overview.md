@@ -32,8 +32,18 @@ React 19 + Vite SPA, served via Docker container on `hermes-network`. Traefik ro
 - Zustand only for non-server state (auth token, UI preferences)
 - All forms use react-hook-form + Zod resolver
 
+## Translation-First UI
+
+- Chat messages are modeled to support original language, auto-detected language metadata, per-target translations, and translation status.
+- Zustand stores frontend-only translation preferences until user-service exposes a persisted preferred-language contract.
+- Channel and DM views expose session-scoped language overrides; individual messages can override target language and show/hide the original.
+- Composer UI shows the user's preferred writing language and the active conversation target language.
+
+## Auth UI
+
+- Auth forms mirror auth-service password policy: uppercase, lowercase, digit, and length checks.
+- Forgot password, reset password, and authenticated change password flows call the current auth-service endpoints.
+
 ## Current State
 
-Frontend development is less mature than the backend. The React app structure exists but most views are still being built alongside the backend API completion.
-
-> **Open Question:** Detailed frontend feature completion status needs verification against the actual `hermes-fe/src/` structure.
+Frontend development is less mature than the backend but now includes the core authenticated shell, guild/channel/DM chat screens, translation-ready chat controls, and auth password-management flows.
